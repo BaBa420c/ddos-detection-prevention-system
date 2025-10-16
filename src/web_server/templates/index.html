@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Protection Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 { color: #667eea; text-align: center; margin-bottom: 30px; font-size: 2.5em; }
+        .status {
+            background: #f0f9ff;
+            border-left: 4px solid #0284c7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .metric:hover { transform: translateX(5px); background: #e0f2fe; }
+        .metric-label { font-weight: 600; color: #334155; }
+        .metric-value { font-weight: 700; color: #0284c7; font-size: 1.2em; }
+        .shield { text-align: center; font-size: 80px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 30px; color: #64748b; font-size: 0.9em; }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="shield pulse">🛡️</div>
+        <h1>DDoS Protected Web Server</h1>
+        <div class="status">
+            <h2 style="color: #0284c7; margin-bottom: 15px;">Server Status: ✅ ONLINE</h2>
+            <p>This web server is protected by an advanced DDoS detection and prevention system.</p>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Requests Served:</span>
+            <span class="metric-value">{{ request_count }}</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Server Uptime:</span>
+            <span class="metric-value">{{ uptime }} seconds</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Your IP Address:</span>
+            <span class="metric-value">{{ request.remote_addr }}</span>
+        </div>
+        <div class="status" style="background: #f0fdf4; border-left-color: #16a34a;">
+            <h3 style="color: #16a34a; margin-bottom: 10px;">Protection Features Active:</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>✅ Rate Limiting</li>
+                <li>✅ IP Reputation Monitoring</li>
+                <li>✅ Anomaly Detection</li>
+                <li>✅ Automatic Blocking</li>
+                <li>✅ Real-time Monitoring</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p><strong>DDoS Detection & Prevention System</strong></p>
+            <p>Created by BaBa420c</p>
+        </div>
+    </div>
+    <script>
+        setTimeout(() => location.reload(), 5000);
+    </script>
+</body>
+</html>
